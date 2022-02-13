@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 USER = "root"
 PASSWORD = ""
 HOST = "localhost"
-DB = "teste"
+DB = "cadastro-login"
 PORT = "3307"
 
 CONNECTION = f"mariadb+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB}"
