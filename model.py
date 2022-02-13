@@ -1,12 +1,10 @@
-class Person:
-    def __init__(self, name: str, email: str, password: str):
-        self.name = name
-        self.email = email
-        self.password = password
+from config import *
 
-class PersonTable:
-    def __init__(self, table_name: str, len_name: int, len_email: int, len_password: int):
-        self.table_name = table_name
-        self.len_name = len_name
-        self.len_email = len_email
-        self.len_password = len_password
+class Person(Base):
+    __tablename__ = "pessoas"
+    id = Column(Integer, primary_key = True, autoincrement = True)
+    nome = Column(String(60))
+    email = Column(String(100), nullable = False)
+    senha = Column(String(200), nullable = False)
+
+Base.metadata.create_all(engine)
