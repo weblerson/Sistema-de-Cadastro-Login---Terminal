@@ -4,6 +4,17 @@ import bcrypt
 
 class PersonController:
     @classmethod
+    def read_users(cls):
+        person_list = {}
+
+        for person in session.query(Person).all():
+            person_list.update({person.id: {
+                "name": person.nome,
+                "email": person.email}})
+
+        return person_list
+
+    @classmethod
     def read(cls):
         email_list = [person.email for person in session.query(Person).all()]
 
